@@ -173,4 +173,18 @@ class DemoTest {
         assertEquals(0,marsRover.getLocationY());
         assertEquals("N",marsRover.getDirection());
     }
+
+    @Test
+    void should_return_minus_1_and_plus_1_and_N_when_executeCommands_given_0_0_N_AND_MLMR() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,"N");
+
+        //when
+        marsRover.executeCommands("MLMR");
+
+        //then
+        assertEquals(-1,marsRover.getLocationX());
+        assertEquals(1,marsRover.getLocationY());
+        assertEquals("N",marsRover.getDirection());
+    }
 }
