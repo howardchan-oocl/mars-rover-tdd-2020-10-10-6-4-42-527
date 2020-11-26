@@ -41,6 +41,8 @@ public class MarsRover {
     private void turn(String command) {
         if (command.equals("L") && direction.equals("N")) {
             direction = "W";
+        } else if (command.equals("R") && direction.equals("N")) {
+            direction = "E";
         }
     }
 
