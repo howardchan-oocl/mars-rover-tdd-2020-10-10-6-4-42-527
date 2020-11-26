@@ -23,6 +23,8 @@ public class MarsRover {
     private void move(String command) {
         if (command.equals("M") && direction.equals("N")) {
             locationY += 1;
+        } else if (command.equals("M") && direction.equals("S")) {
+            locationX += 1;
         }
     }
 
