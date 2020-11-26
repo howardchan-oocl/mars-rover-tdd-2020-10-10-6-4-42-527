@@ -21,7 +21,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_plus_1_when_executeCommands_given_0_0_S_AND_M() {
+    void should_return_y_minus_1_when_executeCommands_given_0_0_S_AND_M() {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
 
@@ -29,8 +29,8 @@ class DemoTest {
         marsRover.executeCommands("M");
 
         //then
-        assertEquals(1,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
+        assertEquals(0,marsRover.getLocationX());
+        assertEquals(-1,marsRover.getLocationY());
         assertEquals("S",marsRover.getDirection());
     }
 }
