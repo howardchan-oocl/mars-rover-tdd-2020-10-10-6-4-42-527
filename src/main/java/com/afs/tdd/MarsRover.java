@@ -17,7 +17,13 @@ public class MarsRover {
 
     public void executeCommands(String commands) {
         new ArrayList<>(Arrays.asList(commands.split("")))
-                .forEach(this::move);
+                .forEach(command->{
+                    if (command.equals("M")) {
+                        move(command);
+                    }else{
+                        turn(command);
+                    }
+                });
     }
 
     private void move(String command) {
@@ -30,6 +36,10 @@ public class MarsRover {
         } else if (command.equals("M") && direction.equals("E")) {
             locationX += 1;
         }
+    }
+
+    private void turn(String command){
+
     }
 
     public int getLocationX() {
