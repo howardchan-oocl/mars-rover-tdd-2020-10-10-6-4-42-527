@@ -45,6 +45,6 @@ class DemoTest {
         //then
         assertEquals(-1,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("S",marsRover.getDirection());
+        assertEquals("W",marsRover.getDirection());
     }
 }
