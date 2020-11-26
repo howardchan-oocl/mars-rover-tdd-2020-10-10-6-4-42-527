@@ -17,10 +17,10 @@ public class MarsRover {
 
     public void executeCommands(String commands) {
         new ArrayList<>(Arrays.asList(commands.split("")))
-                .forEach(command->{
+                .forEach(command -> {
                     if (command.equals("M")) {
                         move(command);
-                    }else{
+                    } else {
                         turn(command);
                     }
                 });
@@ -38,8 +38,10 @@ public class MarsRover {
         }
     }
 
-    private void turn(String command){
-
+    private void turn(String command) {
+        if (command.equals("L") && direction.equals("N")) {
+            direction = "W";
+        }
     }
 
     public int getLocationX() {
