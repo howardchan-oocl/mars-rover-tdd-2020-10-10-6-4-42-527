@@ -19,21 +19,21 @@ public class MarsRover {
         new ArrayList<>(Arrays.asList(commands.split("")))
                 .forEach(command -> {
                     if (command.equals("M")) {
-                        move(command);
+                        move();
                     } else {
                         turn(command);
                     }
                 });
     }
 
-    private void move(String command) {
-        if (command.equals("M") && direction.equals("N")) {
+    private void move() {
+        if (direction.equals("N")) {
             locationY += 1;
-        } else if (command.equals("M") && direction.equals("S")) {
+        } else if (direction.equals("S")) {
             locationY -= 1;
-        } else if (command.equals("M") && direction.equals("W")) {
+        } else if (direction.equals("W")) {
             locationX -= 1;
-        } else if (command.equals("M") && direction.equals("E")) {
+        } else if (direction.equals("E")) {
             locationX += 1;
         }
     }
@@ -53,7 +53,7 @@ public class MarsRover {
             direction = "S";
         } else if (command.equals("L") && direction.equals("W")) {
             direction = "S";
-        }else if (command.equals("R") && direction.equals("W")) {
+        } else if (command.equals("R") && direction.equals("W")) {
             direction = "N";
         }
     }
