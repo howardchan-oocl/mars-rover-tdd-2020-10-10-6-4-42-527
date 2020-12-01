@@ -16,46 +16,18 @@ public class MarsRover {
     }
 
     public void executeCommands(String commands) {
+        Invoker invoker = new Invoker(this);
         new ArrayList<>(Arrays.asList(commands.split("")))
                 .forEach(command -> {
                     if (command.equals("M")) {
-                        move();
-                    } else {
-                        turn(command);
+                        invoker.addComment(new moveCommand());
+                    } else if (command.equals("L")) {
+                        invoker.addComment(new turnLeftCommand());
+                    } else if (command.equals("R")) {
+                        invoker.addComment(new turnRightCommand());
                     }
                 });
-    }
-
-    private void move() {
-        if (direction.equals("N")) {
-            locationY += 1;
-        } else if (direction.equals("S")) {
-            locationY -= 1;
-        } else if (direction.equals("W")) {
-            locationX -= 1;
-        } else if (direction.equals("E")) {
-            locationX += 1;
-        }
-    }
-
-    private void turn(String command) {
-        if (command.equals("L") && direction.equals("N")) {
-            direction = "W";
-        } else if (command.equals("R") && direction.equals("N")) {
-            direction = "E";
-        } else if (command.equals("L") && direction.equals("S")) {
-            direction = "E";
-        } else if (command.equals("R") && direction.equals("S")) {
-            direction = "W";
-        } else if (command.equals("L") && direction.equals("E")) {
-            direction = "N";
-        } else if (command.equals("R") && direction.equals("E")) {
-            direction = "S";
-        } else if (command.equals("L") && direction.equals("W")) {
-            direction = "S";
-        } else if (command.equals("R") && direction.equals("W")) {
-            direction = "N";
-        }
+        invoker.executeCommands();
     }
 
     public int getLocationX() {
@@ -66,7 +38,19 @@ public class MarsRover {
         return locationY;
     }
 
+    public void setLocationX(int locationX) {
+        this.locationX = locationX;
+    }
+
+    public void setLocationY(int locationY) {
+        this.locationY = locationY;
+    }
+
     public String getDirection() {
         return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 }
