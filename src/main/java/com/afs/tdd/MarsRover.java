@@ -18,7 +18,6 @@ public class MarsRover {
         invoker.executeCommands();
     }
 
-
     public int getLocationX() {
         return locationX;
     }
@@ -27,19 +26,44 @@ public class MarsRover {
         return locationY;
     }
 
-    public void setLocationX(int locationX) {
-        this.locationX = locationX;
-    }
-
-    public void setLocationY(int locationY) {
-        this.locationY = locationY;
-    }
-
     public String getDirection() {
         return direction;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void move() {
+        if (direction.equals("N")) {
+            locationY += 1;
+        } else if (direction.equals("S")) {
+            locationY -= 1;
+        } else if (direction.equals("W")) {
+            locationX -= 1;
+        } else if (direction.equals("E")) {
+            locationX += 1;
+        }
+    }
+
+    public void turnLeft() {
+        if (direction.equals("N")) {
+            direction = "W";
+        } else if (direction.equals("S")) {
+            direction = "E";
+        } else if (direction.equals("E")) {
+            direction = "N";
+        } else if (direction.equals("W")) {
+            direction = "S";
+        }
+    }
+
+    public void turnRight() {
+        if (direction.equals("N")) {
+            direction = "E";
+        } else if (direction.equals("S")) {
+            direction = "W";
+        } else if (direction.equals("E")) {
+            direction = "S";
+        } else if (direction.equals("W")) {
+            direction = "N";
+        }
     }
 }
+
