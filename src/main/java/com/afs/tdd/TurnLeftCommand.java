@@ -1,6 +1,6 @@
 package com.afs.tdd;
 
-public class turnLeftCommand implements Command{
+public class TurnLeftCommand implements Command{
     @Override
     public void execute(MarsRover marsRover) {
         if (marsRover.getDirection().equals("N")) {
